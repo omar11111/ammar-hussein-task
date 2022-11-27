@@ -81,30 +81,14 @@
         <div class="container">
 
 
-            <div class="row mb-3 ">
-                <div class="col-6 bg-secondary ">
-                    comments
+            <div class="row mb-3 text-center">
+                <div class="col-12 themed-grid-col">
+                    <h1>title</h1>
+                    <p>body</p>
+                    @dd($post->comments)
                 </div>
-                <div class="col-6 themed-grid-col">
-                        comments
-                </div>
+
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </div>

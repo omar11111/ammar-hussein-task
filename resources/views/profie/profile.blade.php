@@ -81,31 +81,15 @@
         <div class="container">
 
 
-            <div class="row mb-3 ">
-                <div class="col-6 bg-secondary ">
+            <div class="row mb-3 text-center">
+                <div class="col-12 themed-grid-col">
+                    Profile
+                    <hr/>
                     comments
+                    @dd($user->comments)
                 </div>
-                <div class="col-6 themed-grid-col">
-                        comments
-                </div>
+
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </div>
 
