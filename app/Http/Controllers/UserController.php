@@ -46,8 +46,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('profie.profile',compact('user',$user));
+        $item = User::find($id);
+        return view('profie.profile',compact('item',$item));
     }
 
     /**
