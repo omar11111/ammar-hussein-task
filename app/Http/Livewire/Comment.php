@@ -12,8 +12,10 @@ class Comment extends Component
 {
     public $item;
     public $text;
+    public $reply;
 
     public $commentable_id;
+    public $parent_id;
     public $commentable_type;
 
     public function mount()
@@ -25,21 +27,33 @@ class Comment extends Component
         $this->commentable_type = $currentRoute[0];
     }
 
-    public function setCommentableType($type)
+    public function showReplayAndSetParentId($parent_id)
     {
+        $this->parent_id = $parent_id;
 
-        $this->commentable_type = $type;
     }
 
     public function create()
     {
 
-        
-$comment = $this->item->comments()->create(array('text' => $this->text));
+        $comment = $this->item->comments()->create(['text' => $this->text]);
+        $this->text="";
+    }
+
+    public function createReply()
+    {
+        $reply=
+        $this->item->comments()->create([
+            'text' => $this->reply,
+            'parent_id' => $this->parent_id,
+        ]);
+
+        $this->parent_id = 0;
+        $this->reply="";
     }
     public function render()
     {
-
+        // dd($this->parent_id);
         $this->item = Post::find($this->commentable_id);
         if ($this->commentable_type == 'profile') {
             $this->item = User::find($this->commentable_id);
