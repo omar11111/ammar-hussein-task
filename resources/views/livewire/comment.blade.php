@@ -6,10 +6,23 @@
     <div class="col-md-6">
         {{ $comment->text }}
     </div>
+
     <div class="col-md-6">
         <button wire:click="showReplayAndSetParentId({{ $comment->id }}) " class=" btn text-primary ">replay</button>
     </div>
+    @foreach ($comment->replies  as $reply )
+    <div class="col-md-6">
+        {{ $reply->text }}
+    </div>
+
+    <div class="col-md-6">
+        <button wire:click="showReplayAndSetParentId({{ $comment->id }}) " class=" btn text-primary ">replay</button>
+    </div>
+     
+ @endforeach
 </div>
+
+
 
 
 <br/>
@@ -25,7 +38,7 @@
 </form>
 @endif
 
-
+<hr>
 @endforeach
     <form wire:submit.prevent='create'>
         @csrf
